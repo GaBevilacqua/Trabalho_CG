@@ -244,28 +244,9 @@ public class Desenhador extends JFrame {
         }
     }
     
-    private void desenharLinhaBresenham2(Graphics g, int x0, int y0, int x1, int y1) {
-        int dx = x1-x0;
-        int dy = y1-y0;
-        int error = 2*dy-dx;
-        
-        int x = x0;
-        int y= y0;
-        for(; x<=x1;x++){
-            g.drawLine(x, y, x, y);
-            if (error>0){
-                y++;
-                error-=2*dx;
-            }
-            else{
-                error+=2*dy;
-            }
-        }
-      }
-    
     private void desenharCirculoParametrico(Graphics g, int x0, int y0, int x1, int y1) {
         double raio = Math.sqrt(Math.pow((x1 - x0), 2) + Math.pow((y1 - y0), 2));
-        for (double t = 0; t <= 6.28; t += 0.01) {
+        for (double t = 0; t <= Math.PI / 4; t += 0.01) {
             int x = (int) Math.round(raio * Math.cos(t));
             int y = (int) Math.round(raio * Math.sin(t));
             desenharSimetria(g, x0, y0, x, y);
@@ -273,20 +254,21 @@ public class Desenhador extends JFrame {
     }
 
     private void desenharSimetria(Graphics g, int x0, int y0, int x, int y) {
-        g.drawLine(x0 + x, y0 + y, x0 + x, y0 + y); 
-        g.drawLine(x0 - x, y0 + y, x0 - x, y0 + y); 
-        g.drawLine(x0 + x, y0 - y, x0 + x, y0 - y); 
-        g.drawLine(x0 - x, y0 - y, x0 - x, y0 - y); 
-        g.drawLine(x0 + y, y0 + x, x0 + y, y0 + x); 
-        g.drawLine(x0 - y, y0 + x, x0 - y, y0 + x); 
-        g.drawLine(x0 + y, y0 - x, x0 + y, y0 - x); 
-        g.drawLine(x0 - y, y0 - x, x0 - y, y0 - x); 
+        g.drawLine(x0 + x, y0 + y, x0 + x, y0 + y); // Primeiro octante
+        g.drawLine(x0 - x, y0 + y, x0 - x, y0 + y); // Segundo octante
+        g.drawLine(x0 + x, y0 - y, x0 + x, y0 - y); // Terceiro octante
+        g.drawLine(x0 - x, y0 - y, x0 - x, y0 - y); // Quarto octante
+
+        g.drawLine(x0 + y, y0 + x, x0 + y, y0 + x); // Quinto octante
+        g.drawLine(x0 - y, y0 + x, x0 - y, y0 + x); // Sexto octante
+        g.drawLine(x0 + y, y0 - x, x0 + y, y0 - x); // Sétimo octante
+        g.drawLine(x0 - y, y0 - x, x0 - y, y0 - x); // Oitavo octante
     }
 
     
     private void desenharCircunferenciaBresenham(Graphics g, int x0, int y0, int raio) {
         int x = 0, y = raio;
-        int d = 3 - 2 * raio;
+        int d = 3 - 2 * raio; // Valor inicial de decisão
 
         desenharSimetria(g, x0, y0, x, y);
 
@@ -303,7 +285,24 @@ public class Desenhador extends JFrame {
     }
 
     
-
+    private void desenharLinhaBresenham2(Graphics g, int x0, int y0, int x1, int y1) {
+      int dx = x1-x0;
+      int dy = y1-y0;
+      int error = 2*dy-dx;
+      
+      int x = x0;
+      int y= y0;
+      for(; x<=x1;x++){
+          g.drawLine(x, y, x, y);
+          if (error>0){
+              y++;
+              error-=2*dx;
+          }
+          else{
+              error+=2*dy;
+          }
+      }
+    }
     //Seno e cosseno
     private void sencosCirculo(Graphics g, int x0, int y0, int x1, int y1) {
         double raio = Math.sqrt(Math.pow((x1 - x0), 2) + Math.pow((y1 - y0), 2));
@@ -311,6 +310,7 @@ public class Desenhador extends JFrame {
         double x = raio; 
         double y = 0; 
 
+        // Itera de 1 a 360 graus
         for (int i = 0; i <= 360; i++) {
             anguloRad = Math.toRadians(i); 
             double cos1 = Math.cos(anguloRad);

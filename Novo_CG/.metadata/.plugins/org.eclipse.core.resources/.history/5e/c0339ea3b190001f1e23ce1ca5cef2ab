@@ -272,15 +272,15 @@ public class Desenhador extends JFrame {
         }
     }
 
-    private void desenharSimetria(Graphics g, int x0, int y0, int x, int y) {
-        g.drawLine(x0 + x, y0 + y, x0 + x, y0 + y); 
-        g.drawLine(x0 - x, y0 + y, x0 - x, y0 + y); 
-        g.drawLine(x0 + x, y0 - y, x0 + x, y0 - y); 
-        g.drawLine(x0 - x, y0 - y, x0 - x, y0 - y); 
-        g.drawLine(x0 + y, y0 + x, x0 + y, y0 + x); 
-        g.drawLine(x0 - y, y0 + x, x0 - y, y0 + x); 
-        g.drawLine(x0 + y, y0 - x, x0 + y, y0 - x); 
-        g.drawLine(x0 - y, y0 - x, x0 - y, y0 - x); 
+    private void desenharSimetria(Graphics g, int x0, int y0, int raio) {
+        for (int x = -raio; x <= raio; x++) {
+            double y = Math.sqrt(raio * raio - x * x); 
+            
+            g.drawLine(x0 + x, y0 + (int) y, x0 + x, y0 + (int) y);   // Primeiro quadrante
+            g.drawLine(x0 + x, y0 - (int) y, x0 + x, y0 - (int) y);   // Segundo quadrante
+            g.drawLine(x0 - x, y0 + (int) y, x0 - x, y0 + (int) y);   // Terceiro quadrante
+            g.drawLine(x0 - x, y0 - (int) y, x0 - x, y0 - (int) y);   // Quarto quadrante
+        }
     }
 
     

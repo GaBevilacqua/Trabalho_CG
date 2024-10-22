@@ -1,128 +1,128 @@
 
-Y
-java:S1905·"&Remove this unnecessary cast to "int".(Á¦Õ8ûÖæ¬«2HqRMINORZ
+
+java:S3776§"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(œ·¥åşÿÿÿÿ8ûÖæ¬«2H³RCRITICALZ
 CODE_SMELL
-b
-java:S1144¤"/Remove this unused private "limparTela" method.(×Ã£æ8ûÖæ¬«2HdRMAJORZ
-CODE_SMELL
-Z
-java:S1604Š"(Make this anonymous inner class a lambda(Ô¶µÿşÿÿÿÿH„RMAJORZ
-CODE_SMELL
-k	java:S106Ç"9Replace this use of System.out or System.err by a logger.(şåï÷8ûÖæ¬«2HoRMAJORZ
-CODE_SMELL
-}
-java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿH…RCRITICALZ
-CODE_SMELL
-Y
-java:S1905¿"&Remove this unnecessary cast to "int".(ç‡ìô8ûÖæ¬«2HjRMINORZ
-CODE_SMELL
-Y
-java:S1905Å"&Remove this unnecessary cast to "int".(ç‡ìô8ûÖæ¬«2HfRMINORZ
-CODE_SMELL
-q	java:S106³"9Replace this use of System.out or System.err by a logger.(¡¬´œøÿÿÿÿ8ûÖæ¬«2HˆRMAJORZ
-CODE_SMELL
-k	java:S106Ï"9Replace this use of System.out or System.err by a logger.(—ëüÆ8ûÖæ¬«2HnRMAJORZ
+
+java:S1192"FDefine a constant instead of duplicating this literal "livre" 3 times.(‘Ê³¨ûÿÿÿÿ8ûÖæ¬«2H¢RCRITICALZ
 CODE_SMELL
 [
-java:S1185k"(Remove this method to simply inherit it.(ÈÊ“À8ûÖæ¬«2H•RMINORZ
-CODE_SMELL
-_
-java:S16041"(Make this anonymous inner class a lambda(€…Şíüÿÿÿÿ8ûÖæ¬«2HaRMAJORZ
-CODE_SMELL
-`
-java:S1604*"(Make this anonymous inner class a lambda(‰©¯…ûÿÿÿÿ8ûÖæ¬«2H‰RMAJORZ
-CODE_SMELL
-`
-java:S1604#"(Make this anonymous inner class a lambda(Æòíæùÿÿÿÿ8ûÖæ¬«2HƒRMAJORZ
-CODE_SMELL
-Y
-java:S1905±"&Remove this unnecessary cast to "int".(Á¦Õ8ûÖæ¬«2HhRMINORZ
-CODE_SMELL
-o
-java:S1144 "<Remove this unused private "desenharLinhaBresenham2" method.(Ï¯†Ş8ûÖæ¬«2HRMAJORZ
-CODE_SMELL
-
-java:S3776§"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(œ·¥åşÿÿÿÿ8ûÖæ¬«2HsRCRITICALZ
-CODE_SMELL
-p	java:S106Á"9Replace this use of System.out or System.err by a logger.(îØÄàøÿÿÿÿ8ûÖæ¬«2HmRMAJORZ
-CODE_SMELL
-\	java:S108›")Either remove or fill this block of code.(üØô8ûÖæ¬«2H¿RMAJORZ
-CODE_SMELL
-j	java:S106Î"9Replace this use of System.out or System.err by a logger.( İÉE8ûÖæ¬«2HlRMAJORZ
-CODE_SMELL
-q	java:S106Ì"9Replace this use of System.out or System.err by a logger.(®“Çñøÿÿÿÿ8ûÖæ¬«2H‚RMAJORZ
-CODE_SMELL
-p	java:S106Í"9Replace this use of System.out or System.err by a logger.(ÙõÕúüÿÿÿÿ8ûÖæ¬«2HpRMAJORZ
-CODE_SMELL
-q	java:S106¹"9Replace this use of System.out or System.err by a logger.(Ş‰şÿÿÿÿ8ûÖæ¬«2HRMAJORZ
-CODE_SMELL
-€
-java:S1192"FDefine a constant instead of duplicating this literal "livre" 3 times.(‘Ê³¨ûÿÿÿÿ8ûÖæ¬«2H]RCRITICALZ
+java:S16047"(Make this anonymous inner class a lambda(ÂÓ½ 8ûÖæ¬«2H RMAJORZ
 CODE_SMELL
 Z
-java:S16047"(Make this anonymous inner class a lambda(ÂÓ½ 8ûÖæ¬«2HcRMAJORZ
+java:S1905±"&Remove this unnecessary cast to "int".(Á¦Õ8ûÖæ¬«2H›RMINORZ
 CODE_SMELL
-‘	java:S135İ"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8Áô›®«2HÃRMINORZ
+‚	java:S116È"ORename this field "LEFT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şã½¦8Áô›®«2HñRMINORZ
 CODE_SMELL
-o	java:S107Ø"<Method has 9 parameters, which is greater than 7 authorized.(ˆ­©Ú8Áô›®«2HÆRMAJORZ
+q	java:S106Á"9Replace this use of System.out or System.err by a logger.(îØÄàøÿÿÿÿ8ûÖæ¬«2HšRMAJORZ
 CODE_SMELL
-ˆ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄÄœƒúÿÿÿÿ8Áô›®«2HÇRMINORZ
+ˆ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄÄœƒúÿÿÿÿ8Áô›®«2HªRMINORZ
 CODE_SMELL
-ˆ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïã‰±ÿÿÿÿÿ8Áô›®«2HÈRMINORZ
-CODE_SMELL
-ˆ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸Ì¥¤ıÿÿÿÿ8Áô›®«2HÉRMINORZ
-CODE_SMELL
-ƒ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üëì¼8Áô›®«2HÊRMINORZ
-CODE_SMELL
-ƒ	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“…÷û8Áô›®«2HËRMINORZ
-CODE_SMELL
-[
-java:S1604>"(Make this anonymous inner class a lambda(¯“µ×8Áô›®«2HÌRMAJORZ
-CODE_SMELL
-`
-java:S1604E"(Make this anonymous inner class a lambda(¶¢¾­øÿÿÿÿ8Áô›®«2HÍRMAJORZ
-CODE_SMELL
-`
-java:S1604L"(Make this anonymous inner class a lambda(Ö¡û¤ûÿÿÿÿ8Áô›®«2HÎRMAJORZ
-CODE_SMELL
-`
-java:S1604S"(Make this anonymous inner class a lambda(  Ö¾şÿÿÿÿ8Áô›®«2HÏRMAJORZ
-CODE_SMELL
-r
-java:S2184‘"ECast one of the operands of this subtraction operation to a "double".(–Ïá²8Áô›®«2HĞRMINORZBUG
-r
-java:S2184‘"ECast one of the operands of this subtraction operation to a "double".(–Ïá²8Áô›®«2HÑRMINORZBUG
-„	java:S116Ã"QRename this field "INSIDE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡Ãú8Áô›®«2HÒRMINORZ
-CODE_SMELL
-‚	java:S116Ä"ORename this field "LEFT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şã½¦8Áô›®«2HÓRMINORZ
-CODE_SMELL
-ˆ	java:S116Å"PRename this field "RIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ô”Üıÿÿÿÿ8Áô›®«2HÔRMINORZ
-CODE_SMELL
-‰	java:S116Æ"QRename this field "BOTTOM" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïŸÿğşÿÿÿÿ8Áô›®«2HÕRMINORZ
-CODE_SMELL
-	java:S116Ç"NRename this field "TOP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰‘Üÿ8Áô›®«2HÖRMINORZ
-CODE_SMELL
-U
-java:S1170Ã"!Make this final field static too.(‡Ãú8Áô›®«2H×RMINORZ
-CODE_SMELL
-U
-java:S1170Ä"!Make this final field static too.(şã½¦8Áô›®«2HØRMINORZ
-CODE_SMELL
-Z
-java:S1170Å"!Make this final field static too.(‹ô”Üıÿÿÿÿ8Áô›®«2HÙRMINORZ
-CODE_SMELL
-Z
-java:S1170Æ"!Make this final field static too.(ïŸÿğşÿÿÿÿ8Áô›®«2HÚRMINORZ
-CODE_SMELL
-U
-java:S1170Ç"!Make this final field static too.(‰‘Üÿ8Áô›®«2HÛRMINORZ
-CODE_SMELL
-X
-java:S1659"Declare "y" on a separate line.(ÈèÈ¯ÿÿÿÿÿ8Áô›®«2HÜRMINORZ
+q	java:S106³"9Replace this use of System.out or System.err by a logger.(¡¬´œøÿÿÿÿ8ûÖæ¬«2H¬RMAJORZ
 CODE_SMELL
 ‰
-java:S3776Ø"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ˆ­©Ú8Áô›®«2HŞRCRITICALZ
+java:S3776Ü"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ˆ­©Ú8Áô›®«2HŠRCRITICALZ
+CODE_SMELL
+`
+java:S1604#"(Make this anonymous inner class a lambda(Æòíæùÿÿÿÿ8ûÖæ¬«2H±RMAJORZ
+CODE_SMELL
+`
+java:S1604*"(Make this anonymous inner class a lambda(‰©¯…ûÿÿÿÿ8ûÖæ¬«2H°RMAJORZ
+CODE_SMELL
+ˆ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïã‰±ÿÿÿÿÿ8Áô›®«2H­RMINORZ
+CODE_SMELL
+r
+java:S2184‘"ECast one of the operands of this subtraction operation to a "double".(–Ïá²8Áô›®«2HÃRMINORZBUG
+U
+java:S1170Ë"!Make this final field static too.(‰‘Üÿ8Áô›®«2H¨RMINORZ
+CODE_SMELL
+X
+java:S1659 "Declare "y" on a separate line.(ÈèÈ¯ÿÿÿÿÿ8Áô›®«2H¿RMINORZ
+CODE_SMELL
+Z
+java:S1905Å"&Remove this unnecessary cast to "int".(ç‡ìô8ûÖæ¬«2HRMINORZ
 CODE_SMELL
 S
-java:S1659ä"Declare "y" on a separate line.(ùç—©8Áô›®«2HëRMINORZ
+java:S1659è"Declare "y" on a separate line.(ùç—©8Áô›®«2HÄRMINORZ
+CODE_SMELL
+k	java:S106Î"9Replace this use of System.out or System.err by a logger.( İÉE8ûÖæ¬«2H¡RMAJORZ
+CODE_SMELL
+ˆ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸Ì¥¤ıÿÿÿÿ8Áô›®«2H¯RMINORZ
+CODE_SMELL
+ˆ	java:S116É"PRename this field "RIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ô”Üıÿÿÿÿ8Áô›®«2HşRMINORZ
+CODE_SMELL
+q	java:S106Í"9Replace this use of System.out or System.err by a logger.(ÙõÕúüÿÿÿÿ8ûÖæ¬«2HüRMAJORZ
+CODE_SMELL
+Z
+java:S1905·"&Remove this unnecessary cast to "int".(Á¦Õ8ûÖæ¬«2H…RMINORZ
+CODE_SMELL
+c
+java:S1144¤"/Remove this unused private "limparTela" method.(×Ã£æ8ûÖæ¬«2H÷RMAJORZ
+CODE_SMELL
+q	java:S106Ì"9Replace this use of System.out or System.err by a logger.(®“Çñøÿÿÿÿ8ûÖæ¬«2H‰RMAJORZ
+CODE_SMELL
+Z
+java:S1170É"!Make this final field static too.(‹ô”Üıÿÿÿÿ8Áô›®«2HòRMINORZ
+CODE_SMELL
+	java:S116Ë"NRename this field "TOP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰‘Üÿ8Áô›®«2H©RMINORZ
+CODE_SMELL
+l	java:S106Ï"9Replace this use of System.out or System.err by a logger.(—ëüÆ8ûÖæ¬«2HóRMAJORZ
+CODE_SMELL
+ƒ	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“…÷û8Áô›®«2HúRMINORZ
+CODE_SMELL
+[
+java:S1185k"(Remove this method to simply inherit it.(ÈÊ“À8ûÖæ¬«2H˜RMINORZ
+CODE_SMELL
+`
+java:S16041"(Make this anonymous inner class a lambda(€…Şíüÿÿÿÿ8ûÖæ¬«2HûRMAJORZ
+CODE_SMELL
+U
+java:S1170È"!Make this final field static too.(şã½¦8Áô›®«2H²RMINORZ
+CODE_SMELL
+[
+java:S1604>"(Make this anonymous inner class a lambda(¯“µ×8Áô›®«2H¦RMAJORZ
+CODE_SMELL
+`
+java:S1604L"(Make this anonymous inner class a lambda(Ö¡û¤ûÿÿÿÿ8Áô›®«2HÂRMAJORZ
+CODE_SMELL
+o	java:S107Ü"<Method has 9 parameters, which is greater than 7 authorized.(ˆ­©Ú8Áô›®«2HğRMAJORZ
+CODE_SMELL
+r
+java:S2184‘"ECast one of the operands of this subtraction operation to a "double".(–Ïá²8Áô›®«2H«RMINORZBUG
+ƒ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üëì¼8Áô›®«2H—RMINORZ
+CODE_SMELL
+„	java:S116Ç"QRename this field "INSIDE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡Ãú8Áô›®«2HÁRMINORZ
+CODE_SMELL
+Z
+java:S1604"(Make this anonymous inner class a lambda(Ô¶µÿşÿÿÿÿH§RMAJORZ
+CODE_SMELL
+‘	java:S135á"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8Áô›®«2HôRMINORZ
+CODE_SMELL
+p
+java:S1144÷"<Remove this unused private "desenharLinhaBresenham2" method.(Ï¯†Ş8ûÖæ¬«2HÂRMAJORZ
+CODE_SMELL
+`
+java:S1604S"(Make this anonymous inner class a lambda(  Ö¾şÿÿÿÿ8Áô›®«2H®RMAJORZ
+CODE_SMELL
+‰	java:S116Ê"QRename this field "BOTTOM" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïŸÿğşÿÿÿÿ8Áô›®«2H™RMINORZ
+CODE_SMELL
+`
+java:S1604E"(Make this anonymous inner class a lambda(¶¢¾­øÿÿÿÿ8Áô›®«2HRMAJORZ
+CODE_SMELL
+\	java:S108›")Either remove or fill this block of code.(üØô8ûÖæ¬«2HùRMAJORZ
+CODE_SMELL
+U
+java:S1170Ç"!Make this final field static too.(‡Ãú8Áô›®«2HıRMINORZ
+CODE_SMELL
+l	java:S106Ç"9Replace this use of System.out or System.err by a logger.(şåï÷8ûÖæ¬«2HÿRMAJORZ
+CODE_SMELL
+}
+java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿHRCRITICALZ
+CODE_SMELL
+Z
+java:S1905¿"&Remove this unnecessary cast to "int".(ç‡ìô8ûÖæ¬«2H‡RMINORZ
+CODE_SMELL
+q	java:S106¹"9Replace this use of System.out or System.err by a logger.(Ş‰şÿÿÿÿ8ûÖæ¬«2H€RMAJORZ
+CODE_SMELL
+Z
+java:S1170Ê"!Make this final field static too.(ïŸÿğşÿÿÿÿ8Áô›®«2HïRMINORZ
 CODE_SMELL

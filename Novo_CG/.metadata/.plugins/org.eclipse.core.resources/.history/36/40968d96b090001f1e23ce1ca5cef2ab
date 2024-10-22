@@ -140,7 +140,7 @@ public class Desenhador extends JFrame {
                     case "circulo" -> desenharCirculo(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
                     case "bresenham" -> desenharLinhaBresenham(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
                     case "circunferencia_parametrica" -> desenharCirculoParametrico(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
-                    case "rotacao_sen_cos" -> sencosCirculo(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
+                    case "rotacao_sen_cos" -> rotacionarCircunferencia(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY(), Math.PI / 4); // Exemplo de rotação de 45 graus
                     case "bresenham_circunferencia" -> {
                         int raio = (int) Math.sqrt(Math.pow(e.getX() - pontoInicial.x, 2) + Math.pow(e.getY() - pontoInicial.y, 2));
                         desenharCircunferenciaBresenham(g, pontoInicial.x, pontoInicial.y, raio);
@@ -244,28 +244,9 @@ public class Desenhador extends JFrame {
         }
     }
     
-    private void desenharLinhaBresenham2(Graphics g, int x0, int y0, int x1, int y1) {
-        int dx = x1-x0;
-        int dy = y1-y0;
-        int error = 2*dy-dx;
-        
-        int x = x0;
-        int y= y0;
-        for(; x<=x1;x++){
-            g.drawLine(x, y, x, y);
-            if (error>0){
-                y++;
-                error-=2*dx;
-            }
-            else{
-                error+=2*dy;
-            }
-        }
-      }
-    
     private void desenharCirculoParametrico(Graphics g, int x0, int y0, int x1, int y1) {
         double raio = Math.sqrt(Math.pow((x1 - x0), 2) + Math.pow((y1 - y0), 2));
-        for (double t = 0; t <= 6.28; t += 0.01) {
+        for (double t = 0; t <= Math.PI / 4; t += 0.01) {
             int x = (int) Math.round(raio * Math.cos(t));
             int y = (int) Math.round(raio * Math.sin(t));
             desenharSimetria(g, x0, y0, x, y);
@@ -273,20 +254,21 @@ public class Desenhador extends JFrame {
     }
 
     private void desenharSimetria(Graphics g, int x0, int y0, int x, int y) {
-        g.drawLine(x0 + x, y0 + y, x0 + x, y0 + y); 
-        g.drawLine(x0 - x, y0 + y, x0 - x, y0 + y); 
-        g.drawLine(x0 + x, y0 - y, x0 + x, y0 - y); 
-        g.drawLine(x0 - x, y0 - y, x0 - x, y0 - y); 
-        g.drawLine(x0 + y, y0 + x, x0 + y, y0 + x); 
-        g.drawLine(x0 - y, y0 + x, x0 - y, y0 + x); 
-        g.drawLine(x0 + y, y0 - x, x0 + y, y0 - x); 
-        g.drawLine(x0 - y, y0 - x, x0 - y, y0 - x); 
+        g.drawLine(x0 + x, y0 + y, x0 + x, y0 + y); // Primeiro octante
+        g.drawLine(x0 - x, y0 + y, x0 - x, y0 + y); // Segundo octante
+        g.drawLine(x0 + x, y0 - y, x0 + x, y0 - y); // Terceiro octante
+        g.drawLine(x0 - x, y0 - y, x0 - x, y0 - y); // Quarto octante
+
+        g.drawLine(x0 + y, y0 + x, x0 + y, y0 + x); // Quinto octante
+        g.drawLine(x0 - y, y0 + x, x0 - y, y0 + x); // Sexto octante
+        g.drawLine(x0 + y, y0 - x, x0 + y, y0 - x); // Sétimo octante
+        g.drawLine(x0 - y, y0 - x, x0 - y, y0 - x); // Oitavo octante
     }
 
     
     private void desenharCircunferenciaBresenham(Graphics g, int x0, int y0, int raio) {
         int x = 0, y = raio;
-        int d = 3 - 2 * raio;
+        int d = 3 - 2 * raio; // Valor inicial de decisão
 
         desenharSimetria(g, x0, y0, x, y);
 
@@ -303,26 +285,40 @@ public class Desenhador extends JFrame {
     }
 
     
-
-    //Seno e cosseno
-    private void sencosCirculo(Graphics g, int x0, int y0, int x1, int y1) {
+    private void desenharLinhaBresenham2(Graphics g, int x0, int y0, int x1, int y1) {
+      int dx = x1-x0;
+      int dy = y1-y0;
+      int error = 2*dy-dx;
+      
+      int x = x0;
+      int y= y0;
+      for(; x<=x1;x++){
+          g.drawLine(x, y, x, y);
+          if (error>0){
+              y++;
+              error-=2*dx;
+          }
+          else{
+              error+=2*dy;
+          }
+      }
+    }
+    
+    private void rotacionarCircunferencia(Graphics g, int x0, int y0, int x1, int y1, double angulo) {
         double raio = Math.sqrt(Math.pow((x1 - x0), 2) + Math.pow((y1 - y0), 2));
-        double anguloRad; 
-        double x = raio; 
-        double y = 0; 
-
-        for (int i = 0; i <= 360; i++) {
-            anguloRad = Math.toRadians(i); 
-            double cos1 = Math.cos(anguloRad);
-            double sin1 = Math.sin(anguloRad);
+        double cosA = Math.cos(angulo);
+        double sinA = Math.sin(angulo);
+        
+        for (double t = 0; t <= 2 * Math.PI; t += 0.01) {
+            int x = (int) Math.round(x0 + raio * Math.cos(t));
+            int y = (int) Math.round(y0 + raio * Math.sin(t));
             
-            double xn = x * cos1 - y * sin1; 
-            y = x * sin1 + y * cos1; 
-            x = xn; 
-            g.drawLine((int)(x0 + x), (int)(y0 + y), (int)(x0 + x), (int)(y0 + y));
+            // Aplicando rotação
+            int xr = (int) Math.round(cosA * (x - x0) - sinA * (y - y0) + x0);
+            int yr = (int) Math.round(sinA * (x - x0) + cosA * (y - y0) + y0);
+            g.drawLine(xr, yr, xr, yr);
         }
     }
-
     
     private final int INSIDE = 0; // 0000
     private final int LEFT = 1;   // 0001

@@ -273,14 +273,14 @@ public class Desenhador extends JFrame {
     }
 
     private void desenharSimetria(Graphics g, int x0, int y0, int x, int y) {
-        g.drawLine(x0 + x, y0 + y, x0 + x, y0 + y); 
-        g.drawLine(x0 - x, y0 + y, x0 - x, y0 + y); 
-        g.drawLine(x0 + x, y0 - y, x0 + x, y0 - y); 
-        g.drawLine(x0 - x, y0 - y, x0 - x, y0 - y); 
-        g.drawLine(x0 + y, y0 + x, x0 + y, y0 + x); 
-        g.drawLine(x0 - y, y0 + x, x0 - y, y0 + x); 
-        g.drawLine(x0 + y, y0 - x, x0 + y, y0 - x); 
-        g.drawLine(x0 - y, y0 - x, x0 - y, y0 - x); 
+        g.drawLine(x0 + x, y0 + y, x0 + x, y0 + y); // Primeiro octante
+        g.drawLine(x0 - x, y0 + y, x0 - x, y0 + y); // Segundo octante
+        g.drawLine(x0 + x, y0 - y, x0 + x, y0 - y); // Terceiro octante
+        g.drawLine(x0 - x, y0 - y, x0 - x, y0 - y); // Quarto octante
+        g.drawLine(x0 + y, y0 + x, x0 + y, y0 + x); // Quinto octante
+        g.drawLine(x0 - y, y0 + x, x0 - y, y0 + x); // Sexto octante
+        g.drawLine(x0 + y, y0 - x, x0 + y, y0 - x); // Sétimo octante
+        g.drawLine(x0 - y, y0 - x, x0 - y, y0 - x); // Oitavo octante
     }
 
     
