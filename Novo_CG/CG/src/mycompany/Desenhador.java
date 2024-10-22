@@ -1,0 +1,401 @@
+package mycompany;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class Desenhador extends JFrame {
+
+    private JPanel painelDesenho;
+    private String modoDesenho = "livre";
+    private Point pontoInicial;
+
+    public Desenhador() {
+        setTitle("Draw");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menuDesenho = new JMenu("Desenho");
+        JMenuItem itemLivre = new JMenuItem("Desenho Livre");
+        JMenuItem itemLinha = new JMenuItem("Desenhar Linha");
+        JMenuItem itemLinhaBresenham = new JMenuItem("Desenhar Linha Bresenham");
+        JMenuItem itemCirculo = new JMenuItem("Desenhar Círculo");
+        JMenuItem ItemParametrico = new JMenuItem("Desenhar Circulo com Param\u00E9trica e Sim\u00E9trica");
+        JMenuItem ItemSenCos = new JMenuItem("Desenhar Circulo com rota\u00E7\u00E3o (sen cos)");
+        JMenuItem ItemBresenham = new JMenuItem("Desenhar C\u00EDrculo com Bresenham");
+        JMenuItem ItemCohenSutherland = new JMenuItem("Recorte Cohen-Sutherland");
+        JMenuItem ItemCasinha = new JMenuItem("Casinha");
+        
+        
+        itemLivre.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modoDesenho = "livre";
+            }
+        });
+
+        itemLinha.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modoDesenho = "linha";
+            }
+        });
+
+        itemCirculo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modoDesenho = "circulo";
+            }
+        });
+        itemLinhaBresenham.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modoDesenho= "bresenham";
+            }
+        });
+        
+        ItemParametrico.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modoDesenho = "circunferencia_parametrica";
+            }
+        });
+
+        ItemSenCos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modoDesenho = "rotacao_sen_cos";
+            }
+        });
+
+        ItemBresenham.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modoDesenho = "bresenham_circunferencia";
+            }
+        });
+
+        ItemCohenSutherland.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modoDesenho = "recorte_cohen_sutherland";
+            }
+        });
+
+
+        menuDesenho.add(itemLivre);
+        menuDesenho.add(itemLinha);
+        menuDesenho.add(itemLinhaBresenham);
+        menuDesenho.add(itemCirculo);
+        menuBar.add(menuDesenho);
+        menuDesenho.add(ItemParametrico);
+        menuDesenho.add(ItemSenCos);
+        menuDesenho.add(ItemBresenham);
+        menuDesenho.add(ItemCohenSutherland);
+        menuDesenho.add(ItemCasinha);
+        
+        
+        setJMenuBar(menuBar);
+
+        painelDesenho = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Aqui você pode adicionar a lógica de desenho se desejar manter algo mais específico.
+            }
+        };
+
+        painelDesenho.setBackground(Color.WHITE);
+        painelDesenho.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                pontoInicial = e.getPoint();
+            }
+        });
+
+        painelDesenho.addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                Graphics g = painelDesenho.getGraphics();
+                g.setColor(Color.RED); 
+                if (modoDesenho.equals("livre")) {
+                    
+                    g.drawLine(pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
+                    pontoInicial = e.getPoint();
+                }
+            }
+        });
+
+        painelDesenho.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                Graphics g = painelDesenho.getGraphics();
+                switch (modoDesenho) {
+                    case "linha" -> desenharLinha(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
+                    case "circulo" -> desenharCirculo(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
+                    case "bresenham" -> desenharLinhaBresenham(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
+                    case "circunferencia_parametrica" -> desenharCirculoParametrico(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
+                    case "rotacao_sen_cos" -> rotacionarCircunferencia(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY(), Math.PI / 4); // Exemplo de rotação de 45 graus
+                    case "bresenham_circunferencia" -> {
+                        int raio = (int) Math.sqrt(Math.pow(e.getX() - pontoInicial.x, 2) + Math.pow(e.getY() - pontoInicial.y, 2));
+                        desenharCircunferenciaBresenham(g, pontoInicial.x, pontoInicial.y, raio);
+                    }
+                    case "recorte_cohen_sutherland" -> {
+                        double xmin = 100; // Defina os limites do retângulo de recorte
+                        double ymin = 100;
+                        double xmax = 700;
+                        double ymax = 500;
+                        recorteCohenSutherland(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY(), xmin, ymin, xmax, ymax);
+                    }
+                    default -> {
+                    }
+                }
+            }
+        });
+
+
+        getContentPane().add(painelDesenho);
+    }
+    private void limparTela(Graphics g){
+       g.fillRect(0, 0, getWidth(), getHeight());
+    }
+    private void desenharLinha(Graphics g, int x0, int y0, int x1, int y1) {
+        int deltay = y1 - y0;
+        int deltax = x1 - x0;
+
+        // Inclinação
+        float m = (deltax != 0) ? (float) deltay / deltax : Float.POSITIVE_INFINITY; // Evita divisão por zero para linhas verticais
+
+        if (Math.abs(deltax) > Math.abs(deltay)) { // Caso mais horizontal
+            if (x1 < x0) {
+                for (int x = x1; x <= x0; x++) {
+                    int y = (int) Math.round(m * (x - x0) + y0);
+                    g.drawLine(x, y, x, y);  // Desenhar ponto (x, y)
+                    System.out.println("entrou aqui 1");
+                }
+            } else {
+                for (int x = x0; x <= x1; x++) {
+                    int y = (int) Math.round(m * (x - x0) + y0);
+                    g.drawLine(x, y, x, y);  // Desenhar ponto (x, y)
+                    System.out.println("entrou aqui 2");
+                }
+            }
+        } else { // Caso mais vertical
+            if (y1 < y0) {
+                for (int y = y1; y <= y0; y++) {
+                    int x = (int) Math.round((y - y0) / m + x0);
+                    g.drawLine(x, y, x, y);  // Desenhar ponto (x, y)
+                    System.out.println("entrou aqui 3");
+                }
+            } else {
+                for (int y = y0; y <= y1; y++) {
+                    int x = (int) Math.round((y - y0) / m + x0);
+                    g.drawLine(x, y, x, y);  // Desenhar ponto (x, y)
+                    System.out.println("entrou aqui 4");
+                }
+            }
+        }
+
+        System.out.println("Ponto inicial: (" + x0 + ", " + y0 + ")");
+        System.out.println("Ponto final: (" + x1 + ", " + y1 + ")");
+        System.out.println("Delta X: " + deltax);
+        System.out.println("Delta Y: " + deltay);
+    }
+
+    private void desenharCirculo(Graphics g, int x0, int y0, int x1, int y1) {
+       double raio = Math.sqrt(Math.pow((x1-x0),2)+Math.pow((y1-y0),2));
+       int numPoints = (int) Math.max(1, 2*Math.PI*raio);
+        
+        for (int i = 0; i < numPoints; i++) {
+            double angle = 2 * Math.PI * i / numPoints;
+            int x = (int) Math.round(x0 + raio * Math.cos(angle));
+            int y = (int) Math.round(y0 + raio * Math.sin(angle));
+            g.drawLine(x, y, x, y);  // Desenhar ponto (x, y)
+        }
+    }
+
+    private void desenharLinhaBresenham(Graphics g, int x0, int y0, int x1, int y1) {
+        // Algoritmo de Bresenham para desenhar uma linha reta
+        int dx = Math.abs(x1 - x0);
+        int dy = Math.abs(y1 - y0);
+        int sx = (x0 < x1) ? 1 : -1;
+        int sy = (y0 < y1) ? 1 : -1;
+        int err = dx - dy;
+
+        while (true) {
+            g.drawLine(x0, y0, x0, y0); // Desenha um ponto na posição atual
+            if (x0 == x1 && y0 == y1) {
+                break;
+            }
+            int e2 = err * 2;
+            if (e2 > -dy) {
+                err -= dy;
+                x0 += sx;
+            }
+            if (e2 < dx) {
+                err += dx;
+                y0 += sy;
+            }
+        }
+    }
+    
+    private void desenharCirculoParametrico(Graphics g, int x0, int y0, int x1, int y1) {
+        double raio = Math.sqrt(Math.pow((x1 - x0), 2) + Math.pow((y1 - y0), 2));
+        for (double t = 0; t <= Math.PI / 4; t += 0.01) {
+            int x = (int) Math.round(raio * Math.cos(t));
+            int y = (int) Math.round(raio * Math.sin(t));
+            desenharSimetria(g, x0, y0, x, y);
+        }
+    }
+
+    private void desenharSimetria(Graphics g, int x0, int y0, int x, int y) {
+        g.drawLine(x0 + x, y0 + y, x0 + x, y0 + y); // Primeiro octante
+        g.drawLine(x0 - x, y0 + y, x0 - x, y0 + y); // Segundo octante
+        g.drawLine(x0 + x, y0 - y, x0 + x, y0 - y); // Terceiro octante
+        g.drawLine(x0 - x, y0 - y, x0 - x, y0 - y); // Quarto octante
+
+        g.drawLine(x0 + y, y0 + x, x0 + y, y0 + x); // Quinto octante
+        g.drawLine(x0 - y, y0 + x, x0 - y, y0 + x); // Sexto octante
+        g.drawLine(x0 + y, y0 - x, x0 + y, y0 - x); // Sétimo octante
+        g.drawLine(x0 - y, y0 - x, x0 - y, y0 - x); // Oitavo octante
+    }
+
+    
+    private void desenharCircunferenciaBresenham(Graphics g, int x0, int y0, int raio) {
+        int x = 0, y = raio;
+        int d = 3 - 2 * raio; // Valor inicial de decisão
+
+        desenharSimetria(g, x0, y0, x, y);
+
+        while (y >= x) {
+            x++;
+            if (d > 0) {
+                y--;
+                d = d + 4 * (x - y) + 10;
+            } else {
+                d = d + 4 * x + 6;
+            }
+            desenharSimetria(g, x0, y0, x, y);
+        }
+    }
+
+    
+    private void desenharLinhaBresenham2(Graphics g, int x0, int y0, int x1, int y1) {
+      int dx = x1-x0;
+      int dy = y1-y0;
+      int error = 2*dy-dx;
+      
+      int x = x0;
+      int y= y0;
+      for(; x<=x1;x++){
+          g.drawLine(x, y, x, y);
+          if (error>0){
+              y++;
+              error-=2*dx;
+          }
+          else{
+              error+=2*dy;
+          }
+      }
+    }
+    
+    private void rotacionarCircunferencia(Graphics g, int x0, int y0, int x1, int y1, double angulo) {
+        double raio = Math.sqrt(Math.pow((x1 - x0), 2) + Math.pow((y1 - y0), 2));
+        double cosA = Math.cos(angulo);
+        double sinA = Math.sin(angulo);
+        
+        for (double t = 0; t <= 2 * Math.PI; t += 0.01) {
+            int x = (int) Math.round(x0 + raio * Math.cos(t));
+            int y = (int) Math.round(y0 + raio * Math.sin(t));
+            
+            // Aplicando rotação
+            int xr = (int) Math.round(cosA * (x - x0) - sinA * (y - y0) + x0);
+            int yr = (int) Math.round(sinA * (x - x0) + cosA * (y - y0) + y0);
+            g.drawLine(xr, yr, xr, yr);
+        }
+    }
+    
+    private final int INSIDE = 0; // 0000
+    private final int LEFT = 1;   // 0001
+    private final int RIGHT = 2;  // 0010
+    private final int BOTTOM = 4; // 0100
+    private final int TOP = 8;    // 1000
+
+    private int calcularCodigo(double x, double y, double xmin, double ymin, double xmax, double ymax) {
+        int code = INSIDE;
+        if (x < xmin) {
+            code |= LEFT;
+        } else if (x > xmax) {
+            code |= RIGHT;
+        }
+        if (y < ymin) {
+            code |= BOTTOM;
+        } else if (y > ymax) {
+            code |= TOP;
+        }
+        return code;
+    }
+
+    private void recorteCohenSutherland(Graphics g, double x0, double y0, double x1, double y1, double xmin, double ymin, double xmax, double ymax) {
+        int codigo0 = calcularCodigo(x0, y0, xmin, ymin, xmax, ymax);
+        int codigo1 = calcularCodigo(x1, y1, xmin, ymin, xmax, ymax);
+        boolean aceitar = false;
+
+        while (true) {
+            if ((codigo0 | codigo1) == 0) { // Ambos os pontos estão dentro
+                aceitar = true;
+                break;
+            } else if ((codigo0 & codigo1) != 0) { // Ambos os pontos estão fora
+                break;
+            } else {
+                double x, y;
+
+                int codigoFora = (codigo0 != 0) ? codigo0 : codigo1;
+
+                if ((codigoFora & TOP) != 0) {
+                    x = x0 + (x1 - x0) * (ymax - y0) / (y1 - y0);
+                    y = ymax;
+                } else if ((codigoFora & BOTTOM) != 0) {
+                    x = x0 + (x1 - x0) * (ymin - y0) / (y1 - y0);
+                    y = ymin;
+                } else if ((codigoFora & RIGHT) != 0) {
+                    y = y0 + (y1 - y0) * (xmax - x0) / (x1 - x0);
+                    x = xmax;
+                } else {
+                    y = y0 + (y1 - y0) * (xmin - x0) / (x1 - x0);
+                    x = xmin;
+                }
+
+                if (codigoFora == codigo0) {
+                    x0 = x;
+                    y0 = y;
+                    codigo0 = calcularCodigo(x0, y0, xmin, ymin, xmax, ymax);
+                } else {
+                    x1 = x;
+                    y1 = y;
+                    codigo1 = calcularCodigo(x1, y1, xmin, ymin, xmax, ymax);
+                }
+            }
+        }
+
+        if (aceitar) {
+            g.drawLine((int) x0, (int) y0, (int) x1, (int) y1);
+        }
+    }
+
+
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Desenhador().setVisible(true);
+            }
+        });
+    }
+}
