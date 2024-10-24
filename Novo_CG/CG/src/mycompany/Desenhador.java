@@ -217,6 +217,8 @@ public class Desenhador extends JFrame {
             int y = (int) Math.round(y0 + raio * Math.sin(angle));
             g.drawLine(x, y, x, y);  // Desenhar ponto (x, y)
         }
+
+        
     }
 
     private void desenharLinhaBresenham(Graphics g, int x0, int y0, int x1, int y1) {
@@ -322,13 +324,12 @@ public class Desenhador extends JFrame {
             g.drawLine((int)(x0 + x), (int)(y0 + y), (int)(x0 + x), (int)(y0 + y));
         }
     }
-
     
-    private final int INSIDE = 0; // 0000
-    private final int LEFT = 1;   // 0001
-    private final int RIGHT = 2;  // 0010
-    private final int BOTTOM = 4; // 0100
-    private final int TOP = 8;    // 1000
+    private final int INSIDE = 0; 
+    private final int LEFT = 1;   
+    private final int RIGHT = 2;  
+    private final int BOTTOM = 4; 
+    private final int TOP = 8;   
 
     private int calcularCodigo(double x, double y, double xmin, double ymin, double xmax, double ymax) {
         int code = INSIDE;
@@ -351,10 +352,10 @@ public class Desenhador extends JFrame {
         boolean aceitar = false;
 
         while (true) {
-            if ((codigo0 | codigo1) == 0) { // Ambos os pontos estão dentro
+            if ((codigo0 | codigo1) == 0) { 
                 aceitar = true;
                 break;
-            } else if ((codigo0 & codigo1) != 0) { // Ambos os pontos estão fora
+            } else if ((codigo0 & codigo1) != 0) { 
                 break;
             } else {
                 double x, y;
