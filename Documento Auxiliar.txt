@@ -1,0 +1,18 @@
+Integrantes: Gabriel Bevilacqua e Ricardo Toshio
+
+/*Executáveis*/
+
+Executável Casa: Casa -> Casa.exe
+Executável Conversor de cor -> COnversor.jar
+Executável Retas, Circulos...: Desenhador.jar
+
+
+
+/*Algoritmo*/
+
+
+Algoritmo Casa: Casa -> Casa.py
+
+Algoritmo Conversor: -> Novo CG -> CG -> src -> mycompany-> Converter.java
+
+Algoritmo Desenhador: -> Novo CG -> CG -> src -> mycompany-> Desenhador.java

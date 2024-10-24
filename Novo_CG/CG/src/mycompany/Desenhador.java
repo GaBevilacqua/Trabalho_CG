@@ -136,27 +136,38 @@ public class Desenhador extends JFrame {
             public void mouseReleased(MouseEvent e) {
                 Graphics g = painelDesenho.getGraphics();
                 switch (modoDesenho) {
-                    case "linha" -> desenharLinha(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
-                    case "circulo" -> desenharCirculo(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
-                    case "bresenham" -> desenharLinhaBresenham(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
-                    case "circunferencia_parametrica" -> desenharCirculoParametrico(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
-                    case "rotacao_sen_cos" -> sencosCirculo(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
-                    case "bresenham_circunferencia" -> {
+                    case "linha":
+                        desenharLinha(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
+                        break;
+                    case "circulo":
+                        desenharCirculo(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
+                        break;
+                    case "bresenham":
+                        desenharLinhaBresenham(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
+                        break;
+                    case "circunferencia_parametrica":
+                        desenharCirculoParametrico(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
+                        break;
+                    case "rotacao_sen_cos":
+                        sencosCirculo(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY());
+                        break;
+                    case "bresenham_circunferencia":
                         int raio = (int) Math.sqrt(Math.pow(e.getX() - pontoInicial.x, 2) + Math.pow(e.getY() - pontoInicial.y, 2));
                         desenharCircunferenciaBresenham(g, pontoInicial.x, pontoInicial.y, raio);
-                    }
-                    case "recorte_cohen_sutherland" -> {
-                        double xmin = 100; 
+                        break;
+                    case "recorte_cohen_sutherland":
+                        double xmin = 100;
                         double ymin = 100;
                         double xmax = 700;
                         double ymax = 500;
                         CohenSutherland(g, pontoInicial.x, pontoInicial.y, e.getX(), e.getY(), xmin, ymin, xmax, ymax);
-                    }
-                    default -> {
-                    }
+                        break;
+                    default:
+                        break;
                 }
             }
         });
+
 
 
         getContentPane().add(painelDesenho);
