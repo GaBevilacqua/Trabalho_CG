@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="g.drawLine"/>
+		<item key="selection" value="CohenSutherland"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="recorteCohenSutherland"/>
+			<item value="calcularCodigo"/>
 			<item value="g.drawLine"/>
 			<item value="desenharcirculo"/>
 			<item value="desenharci"/>
@@ -17,6 +19,8 @@
 			<item value="círcul"/>
 		</list>
 		<list key="replacehistory">
+			<item value="CohenSutherland"/>
+			<item value="calcCode"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

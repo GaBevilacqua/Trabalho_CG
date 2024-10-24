@@ -15,26 +15,26 @@ class CasaApp:
         self.frame_translation = tk.LabelFrame(self.frame_left, text="Translação", padx=10, pady=10)
         self.frame_translation.pack(padx=10, pady=10)
         tk.Label(self.frame_translation, text="X").pack()
-        self.entry_tx = tk.Entry(self.frame_translation)
-        self.entry_tx.pack()
+        self.input_transformacao_x = tk.Entry(self.frame_translation)
+        self.input_transformacao_x.pack()
         tk.Label(self.frame_translation, text="Y").pack()
-        self.entry_ty = tk.Entry(self.frame_translation)
-        self.entry_ty.pack()
+        self.input_transformacao_y = tk.Entry(self.frame_translation)
+        self.input_transformacao_y.pack()
         tk.Label(self.frame_translation, text="Z").pack()
-        self.entry_tz = tk.Entry(self.frame_translation)
-        self.entry_tz.pack()
+        self.input_transformacao_z = tk.Entry(self.frame_translation)
+        self.input_transformacao_z.pack()
 
         self.frame_scale_local = tk.LabelFrame(self.frame_left, text="Escala Local", padx=10, pady=10)
         self.frame_scale_local.pack(padx=10, pady=10)
         tk.Label(self.frame_scale_local, text="X").pack()
-        self.entry_local_scale_x = tk.Entry(self.frame_scale_local)
-        self.entry_local_scale_x.pack()
+        self.entry_escala_local_x = tk.Entry(self.frame_scale_local)
+        self.entry_escala_local_x.pack()
         tk.Label(self.frame_scale_local, text="Y").pack()
-        self.entry_local_scale_y = tk.Entry(self.frame_scale_local)
-        self.entry_local_scale_y.pack()
+        self.entry_escala_local_y = tk.Entry(self.frame_scale_local)
+        self.entry_escala_local_y.pack()
         tk.Label(self.frame_scale_local, text="Z").pack()
-        self.entry_local_scale_z = tk.Entry(self.frame_scale_local)
-        self.entry_local_scale_z.pack()
+        self.entry_escala_local_z = tk.Entry(self.frame_scale_local)
+        self.entry_escala_local_z.pack()
 
         
         self.frame_scale_global = tk.LabelFrame(self.frame_left, text="Escala Global", padx=10, pady=10)
@@ -44,8 +44,8 @@ class CasaApp:
         self.combo_axis = ttk.Combobox(self.frame_scale_global, values=["X", "Y", "Z"])
         self.combo_axis.pack()
         tk.Label(self.frame_scale_global, text="Angulo:").pack()
-        self.entry_global_scale = tk.Entry(self.frame_scale_global)
-        self.entry_global_scale.pack()
+        self.entry_escala_global = tk.Entry(self.frame_scale_global)
+        self.entry_escala_global.pack()
 
         # Shearing
         self.frame_shearing = tk.LabelFrame(self.master, text="Shearing", padx=10, pady=10)
@@ -71,7 +71,7 @@ class CasaApp:
             for j in range(4):
                 self.shearing_entries[i][j].insert(0, inicial[i][j])
 
-        button = tk.Button(self.frame_left, text="TRANSFORMAR", command=self.get_transformations)
+        button = tk.Button(self.frame_left, text="TRANSFORMAR", command=self.Transformar)
         button.pack(pady=20)
 
  
@@ -81,10 +81,10 @@ class CasaApp:
         self.ax = self.fig.add_subplot(111, projection='3d')
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.frame_right)
         self.canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
-        self.apply_transformations()
+        self.aplicar()
 
     #Tranformações
-    def apply_transformations(self, tx=0, ty=0, tz=0, local_scale=None, global_scale=(1, 1, 1), shearing_matrix=None):
+    def aplicar(self, transformacao_x=0, transformacao_y=0, transformacao_z=0, escala_local=None, escala_global=(1, 1, 1), matriz=None):
         # Definindo os vértices da casa
         vertices = [
             [0, 0, 0], [100, 0, 0], [100, 100, 0], [0, 100, 0],  
@@ -93,43 +93,43 @@ class CasaApp:
         ]
 
         # Translação
-        verticesT = [[v[0] + tx, v[1] + ty, v[2] + tz] for v in vertices]
+        verticesT = [[v[0] + transformacao_x, v[1] + transformacao_y, v[2] + transformacao_z] for v in vertices]
 
         # Escala local
-        if local_scale is not None:
-            vertices_scaled = [
-                [v[0] * local_scale[0], v[1] * local_scale[1], v[2] * local_scale[2]] for v in verticesT
+        if escala_local is not None:
+            Vertice_aux = [
+                [v[0] * escala_local[0], v[1] * escala_local[1], v[2] * escala_local[2]] for v in verticesT
             ]
         else:
-            vertices_scaled = verticesT
+            Vertice_aux = verticesT
 
         # Escala global
-        vertices_scaled = [
-            [v[0] * global_scale[0], v[1] * global_scale[1], v[2] * global_scale[2]] for v in vertices_scaled
+        Vertice_aux = [
+            [v[0] * escala_global[0], v[1] * escala_global[1], v[2] * escala_global[2]] for v in Vertice_aux
         ]
 
         # Cinsilhar
-        if shearing_matrix is not None:
-            vertices_sheared = []
-            for v in vertices_scaled:
+        if matriz is not None:
+            verteces_matriz = []
+            for v in Vertice_aux:
                 x, y, z = v
-                sheared_x = shearing_matrix[0][0] * x + shearing_matrix[0][1] * y + shearing_matrix[0][2] * z + shearing_matrix[0][3]
-                sheared_y = shearing_matrix[1][0] * x + shearing_matrix[1][1] * y + shearing_matrix[1][2] * z + shearing_matrix[1][3]
-                sheared_z = shearing_matrix[2][0] * x + shearing_matrix[2][1] * y + shearing_matrix[2][2] * z + shearing_matrix[2][3]
-                vertices_sheared.append([sheared_x, sheared_y, sheared_z])
-            vertices_scaled = vertices_sheared
+                matriz_x = matriz[0][0] * x + matriz[0][1] * y + matriz[0][2] * z + matriz[0][3]
+                matriz_y = matriz[1][0] * x + matriz[1][1] * y + matriz[1][2] * z + matriz[1][3]
+                matriz_z = matriz[2][0] * x + matriz[2][1] * y + matriz[2][2] * z + matriz[2][3]
+                verteces_matriz.append([matriz_x, matriz_y, matriz_z])
+            Vertice_aux = verteces_matriz
 
-        edges = [[vertices_scaled[j] for j in [0, 1, 2, 3, 0]], 
-                 [vertices_scaled[j] for j in [4, 5, 6, 7, 4]],  
-                 [vertices_scaled[j] for j in [0, 4]],  
-                 [vertices_scaled[j] for j in [1, 5]],  
-                 [vertices_scaled[j] for j in [2, 6]],  
-                 [vertices_scaled[j] for j in [3, 7]],  
-                 [vertices_scaled[j] for j in [7, 9]],  
-                 [vertices_scaled[j] for j in [6, 9]],  
-                 [vertices_scaled[j] for j in [3, 8]],  
-                 [vertices_scaled[j] for j in [2, 8]],  
-                 [vertices_scaled[j] for j in [8, 9]]]  
+        edges = [[Vertice_aux[j] for j in [0, 1, 2, 3, 0]], 
+                 [Vertice_aux[j] for j in [4, 5, 6, 7, 4]],  
+                 [Vertice_aux[j] for j in [0, 4]],  
+                 [Vertice_aux[j] for j in [1, 5]],  
+                 [Vertice_aux[j] for j in [2, 6]],  
+                 [Vertice_aux[j] for j in [3, 7]],  
+                 [Vertice_aux[j] for j in [7, 9]],  
+                 [Vertice_aux[j] for j in [6, 9]],  
+                 [Vertice_aux[j] for j in [3, 8]],  
+                 [Vertice_aux[j] for j in [2, 8]],  
+                 [Vertice_aux[j] for j in [8, 9]]]  
 
         self.ax.cla()
         for edge in edges:
@@ -143,31 +143,31 @@ class CasaApp:
         self.canvas.draw()
 
     #Coletar
-    def get_transformations(self):
-        tx = self.try_parse_float(self.entry_tx.get())
-        ty = self.try_parse_float(self.entry_ty.get())
-        tz = self.try_parse_float(self.entry_tz.get())
-        local_scale_x = self.try_parse_float(self.entry_local_scale_x.get())
-        local_scale_y = self.try_parse_float(self.entry_local_scale_y.get())
-        local_scale_z = self.try_parse_float(self.entry_local_scale_z.get())
-        local_scale = (local_scale_x, local_scale_y, local_scale_z)
-        global_scale_value = self.try_parse_float(self.entry_global_scale.get())
+    def Transformar(self):
+        transformacao_x = self.try_parse_float(self.input_transformacao_x.get())
+        transformacao_y = self.try_parse_float(self.input_transformacao_y.get())
+        transformacao_z = self.try_parse_float(self.input_transformacao_z.get())
+        escala_local_x = self.try_parse_float(self.entry_escala_local_x.get())
+        escala_local_y = self.try_parse_float(self.entry_escala_local_y.get())
+        escala_local_z = self.try_parse_float(self.entry_escala_local_z.get())
+        escala_local = (escala_local_x, escala_local_y, escala_local_z)
+        valor_global = self.try_parse_float(self.entry_escala_global.get())
         axis = self.combo_axis.get()
-        global_scale = [1, 1, 1]
+        escala_global = [1, 1, 1]
         if axis == "X":
-            global_scale[0] = global_scale_value
+            escala_global[0] = valor_global
         elif axis == "Y":
-            global_scale[1] = global_scale_value
+            escala_global[1] = valor_global
         elif axis == "Z":
-            global_scale[2] = global_scale_value
-        shearing_matrix = []
+            escala_global[2] = valor_global
+        matriz = []
         for i in range(4):
             row = []
             for j in range(4):
                 row.append(self.try_parse_float(self.shearing_entries[i][j].get()))
-            shearing_matrix.append(row)
+            matriz.append(row)
 
-        self.apply_transformations(tx, ty, tz, local_scale, global_scale, shearing_matrix)
+        self.aplicar(transformacao_x, transformacao_y, transformacao_z, escala_local, escala_global, matriz)
 
     def try_parse_float(self, value):
         try:

@@ -1,44 +1,64 @@
 
-k	java:S106S"9Replace this use of System.out or System.err by a logger.(•Œ®¿8ááşä«2Hš	RMAJORZ
+j	java:S106Q"9Replace this use of System.out or System.err by a logger.(ÇßÂ?8ááşä«2H
+RMAJORZ
 CODE_SMELL
-ƒ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–‡øÆ8ááşä«2H„	RMINORZ
+p	java:S106R"9Replace this use of System.out or System.err by a logger.(³ÊÅğüÿÿÿÿ8ááşä«2HŸ
+RMAJORZ
 CODE_SMELL
-ƒ	java:S117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßˆ­´8ááşä«2H‡	RMINORZ
+p	java:S106*"9Replace this use of System.out or System.err by a logger.(¯­ú”ÿÿÿÿÿ8ááşä«2H 
+RMAJORZ
 CODE_SMELL
-j	java:S106Q"9Replace this use of System.out or System.err by a logger.(ÇßÂ?8ááşä«2H˜	RMAJORZ
+ƒ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–‡øÆ8ááşä«2H¡
+RMINORZ
 CODE_SMELL
-ˆ	java:S117N"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œß„Ëûÿÿÿÿ8ááşä«2H‰	RMINORZ
-CODE_SMELL
-ƒ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–‡øÆ8ááşä«2H‚	RMINORZ
-CODE_SMELL
-p	java:S106R"9Replace this use of System.out or System.err by a logger.(³ÊÅğüÿÿÿÿ8ááşä«2H™	RMAJORZ
-CODE_SMELL
-ƒ	java:S117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÑ­8ááşä«2Hˆ	RMINORZ
-CODE_SMELL
-ƒ	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ñŸÓ8ááşä«2H…	RMINORZ
-CODE_SMELL
-ƒ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–‡øÆ8ááşä«2Hƒ	RMINORZ
-CODE_SMELL
-p	java:S106P"9Replace this use of System.out or System.err by a logger.(ı©¯Çıÿÿÿÿ8ááşä«2H—	RMAJORZ
-CODE_SMELL
-ˆ	java:S117O"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áñ¢şÿÿÿÿ8ááşä«2HŠ	RMINORZ
-CODE_SMELL
-p	java:S106*"9Replace this use of System.out or System.err by a logger.(¯­ú”ÿÿÿÿÿ8ááşä«2H	RMAJORZ
-CODE_SMELL
-k	java:S106,"9Replace this use of System.out or System.err by a logger.(’£¿›8ááşä«2H’	RMAJORZ
-CODE_SMELL
-ˆ	java:S117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éÿ¬¬ıÿÿÿÿ8ááşä«2H†	RMINORZ
-CODE_SMELL
-k	java:S106+"9Replace this use of System.out or System.err by a logger.(–íĞ·8ááşä«2H‘	RMAJORZ
+k	java:S106)"9Replace this use of System.out or System.err by a logger.(œŒç¾8ááşä«2H¢
+RMAJORZ
 CODE_SMELL
 r
-java:S16598"?Declare "gp" and all following declarations on a separate line.(Ñÿ8ááşä«2H“	RMINORZ
+java:S16598"?Declare "gp" and all following declarations on a separate line.(Ñÿ8ááşä«2H£
+RMINORZ
 CODE_SMELL
-j
-java:S2589"7Remove this expression which always evaluates to "true"(Û…°8ááşä«2H‹	RMAJORZ
+k	java:S106+"9Replace this use of System.out or System.err by a logger.(–íĞ·8ááşä«2H§
+RMAJORZ
 CODE_SMELL
-k	java:S106)"9Replace this use of System.out or System.err by a logger.(œŒç¾8ááşä«2H	RMAJORZ
+ƒ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–‡øÆ8ááşä«2H¨
+RMINORZ
 CODE_SMELL
 m
-java:S1118":Add a private constructor to hide the implicit public one.(•ÀœÎ8ááşä«2H	RMAJORZ
+java:S1118":Add a private constructor to hide the implicit public one.(•ÀœÎ8ááşä«2H©
+RMAJORZ
+CODE_SMELL
+ˆ	java:S117N"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œß„Ëûÿÿÿÿ8ááşä«2Hª
+RMINORZ
+CODE_SMELL
+j
+java:S2589"7Remove this expression which always evaluates to "true"(Û…°8ááşä«2H«
+RMAJORZ
+CODE_SMELL
+k	java:S106,"9Replace this use of System.out or System.err by a logger.(’£¿›8ááşä«2H®
+RMAJORZ
+CODE_SMELL
+ƒ	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ñŸÓ8ááşä«2H¯
+RMINORZ
+CODE_SMELL
+ƒ	java:S117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßˆ­´8ááşä«2H°
+RMINORZ
+CODE_SMELL
+ƒ	java:S117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÑ­8ááşä«2H±
+RMINORZ
+CODE_SMELL
+ƒ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–‡øÆ8ááşä«2H²
+RMINORZ
+CODE_SMELL
+p	java:S106P"9Replace this use of System.out or System.err by a logger.(ı©¯Çıÿÿÿÿ8ááşä«2H³
+RMAJORZ
+CODE_SMELL
+k	java:S106S"9Replace this use of System.out or System.err by a logger.(•Œ®¿8ááşä«2H´
+RMAJORZ
+CODE_SMELL
+ˆ	java:S117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éÿ¬¬ıÿÿÿÿ8ááşä«2Hµ
+RMINORZ
+CODE_SMELL
+ˆ	java:S117O"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áñ¢şÿÿÿÿ8ááşä«2H¶
+RMINORZ
 CODE_SMELL
