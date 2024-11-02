@@ -44,9 +44,27 @@
 		<item key="JarManifestWizardPage.SAVE_MANIFEST" value="false"/>
 		<item key="JarManifestWizardPage.REUSE_MANIFEST" value="false"/>
 		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value=""/>
-		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
+		<item key="JarManifestWizardPage.SEAL_JAR" value="true"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
 			<item value="C:\Users\gabri\Documents\Trabalho_CG\Desenhador.jar"/>
+		</list>
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="3"/>
+	</section>
+	<section name="FatJarPackageWizard">
+		<item key="FatJarPackageWizardPage.ANTSCRIPT_SAVE" value="false"/>
+		<item key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION" value="C:\Users\gabri\Documents\Trabalho_CG\Novo_CG"/>
+		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="1"/>
+		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="Desenhador - CG"/>
+		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="C:\Users\gabri\Documents\Trabalho_CG\Desenhador.jar"/>
+		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\gabri\Documents\Trabalho_CG\Desenhador.jar"/>
+			<item value="C:\Users\gabri\Documents\Trabalho_CG\Conversor.jar"/>
+		</list>
+		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="C:\Users\gabri\Documents\Trabalho_CG\Novo_CG.xml"/>
+			<item value=".xml"/>
 		</list>
 	</section>
 </section>

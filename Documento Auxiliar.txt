@@ -2,7 +2,7 @@ Integrantes: Gabriel Bevilacqua e Ricardo Toshio
 
 /*Executáveis*/
 
-Executável Casa: Casa -> Casa.exe
+Executável Casa: Casa -> Casa.exe (Precisa extrair a pasta Trabalho_CG)
 Executável Conversor de cor -> COnversor.jar
 Executável Retas, Circulos...: Desenhador.jar
 
