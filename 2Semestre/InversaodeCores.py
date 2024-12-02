@@ -31,7 +31,5 @@ for i in range(row_start, row_end):
             inverted_image[i, j] = 1
         elif inverted_image[i, j] == 1:
             inverted_image[i, j] = 0
-        # Adicione mais condições se precisar inverter outras cores
 
-# Visualizar a imagem com a inversão aplicada
 plot_image(inverted_image)
